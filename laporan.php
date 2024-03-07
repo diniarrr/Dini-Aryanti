@@ -3,7 +3,7 @@
         <div>
             <form action="" method="GET" style="text-align: center;">
                 <input  class="py-2 px-4" type="text" name="cari" value="<?php if(isset($_GET['cari'])){ echo $_GET['cari']; } ?>">
-                <input class="py-2 px-4" type="hidden" name="kasir" value="laporan">
+                <input class="py-2 px-4" type="hidden" name="halaman" value="laporan">
                 <button type="submit" class="py-2 px-4">Cari</button>
             </form>
         </div>
@@ -56,7 +56,7 @@
                     </tr>
                 </thead>
                 <?php
-                 if (isset($_GET['cari'])) {
+                   if (isset($_GET['cari'])) {
                     $pencarian = $_GET['cari'];
                     $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
                     FROM  tables
@@ -64,7 +64,7 @@
                     on pesanans.table_id = tables.id
                     INNER JOIN pelayans
                     on pelayans.id = pesanans.pelayan_id WHERE pesanans.nama_pelanggan like '%".$pencarian."%' OR tables.table_nama like '%".$pencarian."%' OR pesanans.tanggal like '%".$pencarian."%' " ;
-                }else{
+                } else {
                     $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
                     FROM  tables
                     INNER JOIN pesanans

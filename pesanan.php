@@ -3,7 +3,7 @@
         <div>
             <form action="" method="GET" style="text-align: center;">
                 <input  class="py-2 px-4" type="text" name="cari" value="<?php if(isset($_GET['cari'])){ echo $_GET['cari']; } ?>">
-                <input class="py-2 px-4" type="hidden" name="kasir" value="pesanan">
+                <input class="py-2 px-4" type="hidden" name="halaman" value="pesanan">
                 <button type="submit" class="py-2 px-4">Cari</button>
             </form>
         </div>
@@ -94,9 +94,14 @@
                             <!-- MENGECEK STATUS PEMBAYARAN -->
                             </td>
                             <td>
-                                <a href="index.php?id=<?php echo $row['id']?>&kasir=pesanan-invoice">
+                                <a href="home.php?id=<?php echo $row['id']?>&halaman=pesanan-invoice">
                                     <button class="btn btn-primary">
                                     <i class='bx bx-printer'></i>
+                                    </button>
+                                </a>
+                                <a href="home.php?id=<?php echo $row['id']?>&halaman=pesanan-delete"  onclick="return confirm('Anda yakin mau menghapus ini?')">
+                                    <button class="btn btn-danger">
+                                    <i class='bx bxs-trash'></i>
                                     </button>
                                 </a>
                             </td>
@@ -158,7 +163,7 @@ if(isset($_POST['btn-bayar'])){
     if($update_bayar){
         echo ("<script LANGUAGE='JavaScript'>
         window.alert('Pembayaran Berhasil Di Proses');
-        window.location.href='index.php?kasir=pesanan';
+        window.location.href='home.php?halaman=pesanan';
         </script>"); 
     
     }

@@ -37,7 +37,7 @@
         if ( $table_update ) {
             echo ("<script LANGUAGE='JavaScript'>
             window.alert('Pesanan Berhasil Ditambahkan');
-            window.location.href='index.php?kasir=pesanan';
+            window.location.href='home.php?halaman=pesanan';
             </script>"); 
         }
     }
